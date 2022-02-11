@@ -5,9 +5,247 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f0f5;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+nav {
+  padding: 0 2rem;
+}
+
+.logo {
+  color: #fff;
+  display: inline-block;
+  font-size: 2.1rem;
+  padding: 0;
+}
+
+.content {
+  min-height: calc(100vh - 64px - 70px); /* делаем main на всю высоту, минус высота хедера и футера */
+  padding: 1.5rem 0;
+}
+
+.goods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .card-content {
+  flex-grow: 1;
+  padding: 12px;
+}
+
+.btn {
+  background-color: rgb(170, 2, 170);
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: rgb(119, 16, 119);
+}
+
+.collection {
+  font-size: 1.1rem;
+}
+
+.collection .active {
+  font-size: 1.3rem;
+}
+
+
+.cart {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 5;
+  padding: 1rem 1.16rem;
+  opacity: 0.8;
+  user-select : none;
+}
+
+.cart-close {
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #fff;
+}
+
+.cart-close:hover,
+.cart-close:focus {
+  opacity: 0.8;
+}
+
+.secondary-content .material-icons {
+  color: rgb(173, 62, 173);
+}
+
+.cart-delete {
+  cursor: pointer;
+}
+
+.cart-delete:hover,
+.cart-delete:focus {
+  opacity: 0.7
+}
+
+.cart-table {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background-color: #fff;
+  animation: showCartTable 500ms ease-in-out;
+  -moz-user-select : none;
+  -khtml-user-select : none;
+  -webkit-user-select : none;
+  -o-user-select : none;
+  user-select : none;  /*  отключил выделение текста в корзине, в т.ч. при двойных кликах на кнопки + и - */
+}
+
+.cart-table caption {
+  background-color: rgb(0, 158, 150);
+  font-size: 1.4rem;
+  line-height: 3rem;
+  color: #fff;
+}
+
+caption .cart-close {
+  top: 0.7rem;
+  right: 0.8rem;
+}
+
+.cart-table td {
+  border-right: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.cart-table .secondary-content {
+  float: none
+}
+
+.cart-table tbody td:last-child {
+  text-align: center;
+}
+
+.price-column {
+  width: 20%;
+}
+
+.change-quantity {
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 1.3rem;
+  border-radius: 5px;
+  margin: 0 5px;
+  color: white;
+  background-color: rgb(0, 158, 150);
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.change-quantity:hover,
+.change-quantity:focus {
+  background-color: rgb(0, 128, 121);
+}
+
+.footer-btn {
+  padding: 0 ;
+}
+
+.btn-buy {
+  width: 100%;
+  background-color: rgb(0, 158, 150);
+  font-size: 1.1rem;
+}
+
+.btn-buy:hover,
+.btn-buy:focus {
+  background-color: rgb(0, 124, 118);
+}
+
+.alert {
+  opacity: 0.8;
+  padding: 0.5rem 1rem;
+  top: 10rem;
+  right: 2rem;
+  width: auto;
+  height: auto;
+  position: fixed;
+  background-color: rgb(112, 112, 112);
+  color: #fff;
+  text-align: center;
+  animation: alert 500ms ease-in-out;
+}
+
+@keyframes showCartTable {
+  from {
+    top: 70%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes alert {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
+@media (min-width: 767px) {
+  .cart {
+    top: 5rem;
+    bottom: unset;
+  }
+}
+
+@media (max-width: 767px) {
+  .alert {
+    bottom: 7rem;
+    top: unset;
+  }
+}
+
+@media (max-width: 891px) {
+  .cart-table {
+    width: 70%;
+  }
+}
+
+@media (max-width: 567px) {
+  .cart-table {
+    width: 90%;
+  }
+  .collection .active {
+    font-size: 1.1rem;
+  }
+  .price-column {
+    width: 25%;
+  }
+  .change-quantity {
+    line-height: 1rem;
+    border-radius: 1px;
+    margin: 0;
+    width: 1rem;
+    height: 1rem;
+  }
 }
